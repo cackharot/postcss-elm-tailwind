@@ -66,6 +66,12 @@ describe("fixClass", () => {
         "btn_checked_true"
       );
     });
+    it('removes a~b', () => {
+      assert.strictEqual(
+        fixClass("btn~a"),
+        "btn_a"
+      );
+    });
     it("removes :focus-within", () => {
       assert.strictEqual(
         fixClass(".sm:focus-within:tw-text-transparent:focus-within"),
