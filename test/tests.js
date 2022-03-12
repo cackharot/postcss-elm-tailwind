@@ -60,6 +60,12 @@ describe("fixClass", () => {
         "btn_disabled"
       );
     });
+    it('removes [checked=true|false]', () => {
+      assert.strictEqual(
+        fixClass("btn[checked=true]"),
+        "btn_checked_true"
+      );
+    });
     it("removes :focus-within", () => {
       assert.strictEqual(
         fixClass(".sm:focus-within:tw-text-transparent:focus-within"),

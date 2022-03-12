@@ -99,6 +99,8 @@ function fixClass(cls) {
   cls = cls.replace(/:where\(([^\)]*?)\)/g, "_where$1");
   // remove [disabled]
   cls = cls.replace(/\[(disabled?)\]/g,"_$1")
+  // remove [checked=true]
+  cls = cls.replace(/\[checked=(true|false?)\]/g,"_checked_$1")
   // remove pseudo-classes (:)
   cls = cls.replace(
     /(:(active|after|before|checked|disabled|focus|focus-within|hover|visited|nth-child\((even|odd)\)|(first|last)-child))+$/,
