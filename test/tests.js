@@ -228,6 +228,22 @@ describe("fixClass -> toElmName", () => {
       "xlTwNegMy64"
     );
   });
+  it("handle where", () => {
+    assert.strictEqual(
+      toElmName(fixClass("btn-circle:where(.btn-lg)"), {
+         ...camelCaseOpts
+      }),
+      "btnCircleWhereDotbtnLg"
+    );
+    assert.strictEqual(
+      toElmName(fixClass("btn-circle:where(.btn-lg)"), {
+        ...defaultOpts,
+        prefix: "-tw",
+        screens: ["sm"]
+      }),
+      "btn_circle_where_dot_btn_lg"
+    );
+  });
   it("not-negative with prefix .xl:tw-my-64", () => {
     assert.strictEqual(
       toElmName(fixClass(".xl:tw-my-64"), {

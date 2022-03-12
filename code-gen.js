@@ -95,6 +95,8 @@ function fixClass(cls) {
   cls = cls.replace(/::.*$/, "");
   // remove not pseudo-classes (:not())
   cls = cls.replace(/:not\([^\)]*\)/g, "");
+  // remove :where() classes
+  cls = cls.replace(/:where\(([^\)]*?)\)/g, "_where$1");
   // remove pseudo-classes (:)
   cls = cls.replace(
     /(:(active|after|before|checked|disabled|focus|focus-within|hover|visited|nth-child\((even|odd)\)|(first|last)-child))+$/,
