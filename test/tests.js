@@ -54,6 +54,12 @@ describe("fixClass", () => {
         "disabled:tw-bg-transparent"
       );
     });
+    it('removes [disabled]', () => {
+      assert.strictEqual(
+        fixClass("btn[disabled]"),
+        "btn_disabled"
+      );
+    });
     it("removes :focus-within", () => {
       assert.strictEqual(
         fixClass(".sm:focus-within:tw-text-transparent:focus-within"),
